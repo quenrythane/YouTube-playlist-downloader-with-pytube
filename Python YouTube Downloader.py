@@ -8,7 +8,7 @@ x = input("Od jakiego numeru zacząć numerować: ")
 beginning_video_count = int(x) if x else 0
 
 # inne_dane:
-zakazane_symbole = ['|', ':', '?', '"', "'", '&', '(', ')', '#', '/']
+zakazane_symbole = ['|', ':', '?', '"', "'", '&', '(', ')', '#', '/', '*']
 list_of_failure = []
 
 # Główna część programu
@@ -16,6 +16,13 @@ print(f'Zaczynam pobieranie {len(playlist)} filmów')
 
 
 for index, video in enumerate(playlist):
+    if index < 4:
+        continue
+    """
+    x = 0 # jak coś pójdzie nie tak, to tu wpisujesz ostatinie udane pobieranie
+    if index < x:  
+        continue
+    """
     # Tworzę zmienną, która będzie odświeżać link do filmu co obieg pętli
     yt_video = YouTube(video)
 
@@ -23,7 +30,7 @@ for index, video in enumerate(playlist):
     video_count = str(("00" + str(index + beginning_video_count)))[-3:]
     video_title = yt_video.title
     video_author = yt_video.author
-    video_name = f'{video_count} {video_title[2:]} [{video_author}].mp4'
+    video_name = f'{video_count} {video_title} [{video_author}].mp4'
 
     # Sprawdzam czy nazwa jest legitna
     for char in zakazane_symbole:
@@ -49,7 +56,6 @@ for index, video in enumerate(playlist):
     except ValueError:
         print(f'nie udało pobrać się {video_name} (błąd pobierania)')
         list_of_failure.append(yt_video.title)
-        continue
 
 # Zakończenie i podsumowanie
 print('\n\n Pobieranie ukończone! '
