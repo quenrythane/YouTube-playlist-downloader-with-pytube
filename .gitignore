@@ -1,5 +1,7 @@
 .idea
 venv
+yt-d
+
+.gitignore
 Działający- Copy.py
-test.py
-YouTube Downloader (functions programming).py
+Python YouTube Downloader functions.py
