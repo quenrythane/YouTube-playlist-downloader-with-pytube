@@ -3,15 +3,14 @@ from pytube import YouTube, Playlist
 
 # ask uesr of input data
 def ask_user_of_input_data():
-    # playlist = Playlist(input("Podaj link do playlisty (pamiętaj że nie może być niepubliczna: "))
-    playlist = Playlist("https://www.youtube.com/playlist?list=PLS5M7N6VYVlZ8dwB_8pPdeMdl6--fJ2K_")
+    playlist = Playlist(input("Podaj link do playlisty (pamiętaj że nie może być niepubliczna: "))
 
     print("Twoją playlistę zapiszemy w katalogu E:\YouTube\WatchLater. \n"
           "Jeśli chcesz by była umieszczona w podkatalogu podaj go poniżej. W innym przpypadku po prostu naciśnij Enter")
-    path = 'xd'  # f"E:\YouTube\WatchLater\{input('Do jakiego podfolderu zapisać plik: ')}"
+    path = f"E:\YouTube\WatchLater\{input('Do jakiego podfolderu zapisać plik: ')}"
     print(f"Zapiszemy plalistę w katalogu: {path} \n")
 
-    x = 1  # input("Od jakiego numeru zacząć numerować: ")
+    x = input("Od jakiego numeru zacząć numerować: ")
     start_counting_number = int(x) if x else 1
     print(f"Zaczniemy numerować od: {start_counting_number} \n")
 
